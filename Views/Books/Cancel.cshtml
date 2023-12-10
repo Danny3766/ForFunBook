@@ -1,6 +1,6 @@
 @model ForFunBook.Models.Book
 
-<h2>刪除 書籍</h2>
+<h2>Cancel Book Page</h2>
 
 <div>
     <h4>確定要將這本書從清單中移除嗎?</h4>
@@ -22,8 +22,9 @@
     </dl>
     <form asp-controller="Books" asp-action="Cancel" asp-route-id="@Model.BookId" method="post">
         <div class="form-group">
-            <input type="submit" value="Delete" class="btn btn-danger" />
-            <a asp-action="Index">Back to List</a>
+            <input type="submit" value="Delete" class="btn btn-danger" />&nbsp;
+            <a asp-action="Show" asp-controller="Books" asp-route-id="@Model.BookId">Back to
+                List</a>
         </div>
     </form>
 </div>

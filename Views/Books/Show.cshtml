@@ -1,13 +1,14 @@
 
 @model IEnumerable<ForFunBook.Models.Book>
 
-<h2>Books</h2>
+<h2>Books List</h2>
 
 <table class="table">
     <thead>
         <tr>
             <th>Title</th>
             <th>Author</th>
+            <th>Category</th>
             <!-- 其他屬性... -->
         </tr>
     </thead>
@@ -20,7 +21,11 @@
                 <tr>
                     <td>@book.Title</td>
                     <td>@book.Author</td>
-                    <!-- 其他屬性... -->
+                    <td>@book.Category</td>
+                    <td>
+                        <a asp-action="Edit" asp-controller="Books" asp-route-id="@book.BookId">Edit the Book</a> |
+                        <a asp-action="Cancel" asp-controller="Books" asp-route-id="@book.BookId">Delete the Book</a>
+                    </td>
                 </tr>
             }
         }
@@ -30,5 +35,27 @@
         }
         
     </tbody>
-    <a asp-action="Create" asp-controller="Books">Create New Book</a>
+    <a asp-action="Create" asp-controller="Books">Add new Book</a>
 </table>
+
+@* <script>
+    function postForm(url, data) {
+    const form = document.createElement('form');
+    form.method = 'POST';
+    form.action = url;
+
+    for (const key in data) {
+    if (data.hasOwnProperty(key)) {
+    const hiddenField = document.createElement('input');
+    hiddenField.type = 'hidden';
+    hiddenField.name = key;
+    hiddenField.value = data[key];
+
+    form.appendChild(hiddenField);
+    }
+    }
+
+    document.body.appendChild(form);
+    form.submit();
+    }
+</script> *@

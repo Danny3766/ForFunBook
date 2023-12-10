@@ -95,28 +95,8 @@ namespace ForFunBook.Controllers
 
             return View(bookEditModel);
         }
-        // 送出 編輯 book 後的 表單
-        // [HttpPost]
-        // [ValidateAntiForgeryToken]
-        // [Route("[controller]/Edit")]
-        // public IActionResult Edit(Book book)
-        // {
 
-
-        //     if (book == null)
-        //     {
-        //         return BadRequest();
-        //     }
-
-        //     _context.Books.Update(book);
-        //     _context.SaveChanges();
-
-        //     return RedirectToAction(nameof(Show));
-        // }
-
-
-
-        // 送出編輯book的表單
+        // 送出 編輯 book後 的表單
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Route("[controller]/Edit/{id}")]
@@ -146,22 +126,45 @@ namespace ForFunBook.Controllers
             return RedirectToAction(nameof(Show));
         }
 
-
-
         // 刪除 book 功能
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        [Route("[controller]/Cancel/{id}")]
+        [HttpGet]
+        [Route("[controller]/Cancel/{id}")]  // 取得 book 的編輯頁面
         public IActionResult Cancel(long id)
         {
             var book = _context.Books.Find(id);
-
+            var bookCancelModel = new ForFunBook.Models.Book
+            {
+                BookId = book.BookId,
+                Title = book.Title,
+                Author = book.Author,
+                Category = book.Category,
+            };
             if (book == null)
             {
                 return NotFound();
             }
 
-            _context.Books.Remove(book);
+            return View(bookCancelModel);
+        }
+        // 送出 刪除 book後 的表單
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [Route("[controller]/Cancel/{id}")]
+        public IActionResult Cancel(long id, [Bind("BookId, Title, Author, Category")] Book book)
+        {
+            var book_delete = _context.Books.Find(id);
+
+            if (book_delete == null)
+            {
+                return BadRequest();
+            }
+
+            // 將接收到的 book 對象的更改放到 book_submit 中
+            book_delete.Title = book.Title;
+            book_delete.Author = book.Author;
+            book_delete.Category = book.Category;
+
+            _context.Books.Remove(book_delete);
             _context.SaveChanges();
 
             return RedirectToAction(nameof(Show));
