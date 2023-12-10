@@ -26,17 +26,15 @@ namespace ForFunBook.Controllers
         [Route("[controller]/Show")]
         public IActionResult Show()
         {
-            var books = _context.Books.ToList(); // 从数据库中检索所有书籍数据
+            var books = _context.Books.OrderByDescending(book => book.BookId).ToList();
             var booksViewModel = books.Select(book => new ForFunBook.Models.Book
             {
                 BookId = book.BookId,
                 Title = book.Title,
                 Author = book.Author,
-                // 其他属性...
             }).ToList();
 
-            return View(booksViewModel); // 将正确类型的书籍数据传递给视图
-
+            return View(booksViewModel);
             // var books = _context.Books.ToList(); // 从数据库中检索所有书籍数据
             // return View(books); // 将书籍数据传递给视图
             // return View();
