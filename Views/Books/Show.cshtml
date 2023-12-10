@@ -12,13 +12,23 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var book in Model)
+
+        @if (Model != null)
         {
-            <tr>
-                <td>@book.Title</td>
-                <td>@book.Author</td>
-                <!-- 其他屬性... -->
-            </tr>
+            @foreach (var book in Model)
+            {
+                <tr>
+                    <td>@book.Title</td>
+                    <td>@book.Author</td>
+                    <!-- 其他屬性... -->
+                </tr>
+            }
         }
+        else
+        {
+            <p>No books available.</p>
+        }
+        
     </tbody>
+    <a asp-action="Create" asp-controller="Books">Create New Book</a>
 </table>

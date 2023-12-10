@@ -9,7 +9,8 @@ builder.Services.AddControllersWithViews();
 // Register
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {
-    options.UseNpgsql(builder.Configuration.GetConnectionString("ConnectionStrings:lab"));
+    var connectionString = builder.Configuration["ConnectionStrings:lab"];
+    options.UseNpgsql(connectionString);
 });
 
 
