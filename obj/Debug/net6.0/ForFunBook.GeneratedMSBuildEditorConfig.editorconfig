@@ -15,16 +15,20 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = /Users/hsieh-cheng-ting/Desktop/ForFunProject/ForFunBook
 build_property._RazorSourceGeneratorDebug = 
 
+[/Users/hsieh-cheng-ting/Desktop/ForFunProject/ForFunBook/Views/Books/Cancel.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQm9va3MvQ2FuY2VsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/hsieh-cheng-ting/Desktop/ForFunProject/ForFunBook/Views/Books/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQm9va3MvQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/hsieh-cheng-ting/Desktop/ForFunProject/ForFunBook/Views/Books/Show.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQm9va3MvU2hvdy5jc2h0bWw=
+[/Users/hsieh-cheng-ting/Desktop/ForFunProject/ForFunBook/Views/Books/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQm9va3MvRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/hsieh-cheng-ting/Desktop/ForFunProject/ForFunBook/Views/Home/Books.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9Cb29rcy5jc2h0bWw=
+[/Users/hsieh-cheng-ting/Desktop/ForFunProject/ForFunBook/Views/Books/Show.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQm9va3MvU2hvdy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/hsieh-cheng-ting/Desktop/ForFunProject/ForFunBook/Views/Home/Index.cshtml]

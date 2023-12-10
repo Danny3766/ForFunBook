@@ -1,0 +1,29 @@
+@model ForFunBook.Models.Book
+
+<h2>刪除 書籍</h2>
+
+<div>
+    <h4>確定要將這本書從清單中移除嗎?</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Author)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Author)
+        </dd>
+        <!-- 其他属性... -->
+    </dl>
+    <form asp-controller="Books" asp-action="Cancel" asp-route-id="@Model.BookId" method="post">
+        <div class="form-group">
+            <input type="submit" value="Delete" class="btn btn-danger" />
+            <a asp-action="Index">Back to List</a>
+        </div>
+    </form>
+</div>
