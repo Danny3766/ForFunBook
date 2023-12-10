@@ -9,7 +9,7 @@
             <th>Title</th>
             <th>Author</th>
             <th>Category</th>
-            <!-- 其他屬性... -->
+            
         </tr>
     </thead>
     <tbody>
@@ -37,25 +37,3 @@
     </tbody>
     <a asp-action="Create" asp-controller="Books">Add new Book</a>
 </table>
-
-@* <script>
-    function postForm(url, data) {
-    const form = document.createElement('form');
-    form.method = 'POST';
-    form.action = url;
-
-    for (const key in data) {
-    if (data.hasOwnProperty(key)) {
-    const hiddenField = document.createElement('input');
-    hiddenField.type = 'hidden';
-    hiddenField.name = key;
-    hiddenField.value = data[key];
-
-    form.appendChild(hiddenField);
-    }
-    }
-
-    document.body.appendChild(form);
-    form.submit();
-    }
-</script> *@
