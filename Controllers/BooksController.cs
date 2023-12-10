@@ -14,11 +14,26 @@ namespace ForFunBook.Controllers
     [Route("[controller]")]
     public class BooksController : Controller
     {
-        private readonly ApplicationDbContext _context;
 
-        public BooksController(ApplicationDbContext context)
+
+         private readonly ApplicationDbContext _context;
+
+         public BooksController(ApplicationDbContext context)
+         {
+             _context = context;
+         }
+
+
+        // private readonly ILogger<HomeController> _logger;
+
+        // public BooksController(ILogger<HomeController> logger)
+        // {
+        //     _logger = logger;
+        // }   
+
+        public IActionResult Show()
         {
-            _context = context;
+            return View();
         }
 
         // GET: Books/Create
@@ -31,10 +46,16 @@ namespace ForFunBook.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Create(Book book)
         {
+            if (book == null)
+            {
+                return BadRequest(); 
+            }
+
             if (!ModelState.IsValid)
             {
                 return View(book);
             }
+
             _context.Books.Add(book);
             _context.SaveChanges();
             return RedirectToAction(nameof(Index));

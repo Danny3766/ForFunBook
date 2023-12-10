@@ -1,0 +1,24 @@
+
+@model IEnumerable<ForFunBook.Models.Book>
+
+<h2>Books</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <!-- 其他屬性... -->
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var book in Model)
+        {
+            <tr>
+                <td>@book.Title</td>
+                <td>@book.Author</td>
+                <!-- 其他屬性... -->
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,4 +1,5 @@
 using ForFunBook.Context;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -6,7 +7,11 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 // Register
-builder.Services.AddDbContext<ApplicationDbContext>;
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+{
+    options.UseNpgsql(builder.Configuration.GetConnectionString("ConnectionStrings:lab"));
+});
+
 
 var app = builder.Build();
 
