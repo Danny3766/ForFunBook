@@ -36,6 +36,8 @@ namespace ForFunBook
                     .ValueGeneratedNever()
                     .HasColumnName("book_id");
 
+                entity.Property(e => e.Title).HasColumnName("Title");
+
                 entity.Property(e => e.Author).HasColumnName("author");
 
                 entity.Property(e => e.Category).HasColumnName("category");
